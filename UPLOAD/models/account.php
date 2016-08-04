@@ -108,6 +108,23 @@ class account_class extends AWS_MODEL
         return $this->fetch_one('users', 'uid', "email = '" . $this->quote($email) . "'");
     }
 
+    public function check_phone($phone)
+    {
+        if(!preg_match("/^1[34578]{10}$/",$phone))
+        {
+            return true;
+        }
+        return $this->fetch_one('users', 'uid', "mobile = '" . $this->quote($phone) . "''");
+    }
+
+    public function check_company($company)
+    {
+        if (H::sensitive_word_exists($company))
+        {
+            return true;
+        }
+    }
+
     /**
      * 用户登录验证
      *
