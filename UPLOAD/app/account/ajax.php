@@ -158,7 +158,7 @@ class ajax extends AWS_CONTROLLER
 
         if(!isset($_POST['city']))
         {
-            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写城市信息'));
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写城市信息')));
         }
 
         if(!isset($_POST['job_id']))
