@@ -110,7 +110,7 @@ class account_class extends AWS_MODEL
 
     public function check_phone($phone)
     {
-        if(!preg_match("/^1[34578]{10}$/",$phone))
+        if(!preg_match("/^1[0123345789]{10}$/",$phone))
         {
             return true;
         }

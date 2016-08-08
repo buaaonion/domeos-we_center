@@ -23,7 +23,7 @@ if (file_exists(AWS_PATH . 'config/install.lock.php'))
 
 @set_time_limit(0);
 
-TPL::assign('page_title', 'WeCenter - Install');
+TPL::assign('page_title', 'DomeOS - Install');
 TPL::assign('static_url', '../static');
 
 switch ($_POST['step'])
