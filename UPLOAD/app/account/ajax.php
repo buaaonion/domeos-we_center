@@ -127,13 +127,9 @@ class ajax extends AWS_CONTROLLER
 			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('密码长度不符合规则')));
 		}
 
-        if (strlen($_POST['company']) == 0)
+        if(!isset($_POST['sex']))
         {
-            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('请输入公司名称')));
-        }
-        else if ($this->model('account')->check_company($_POST['company']))
-        {
-            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('公司名称不符合规则')));
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写性别信息')));
         }
 
         if (strlen($_POST['phone']) != 0 && $this->model('account')->check_phone($_POST['phone']))
@@ -141,14 +137,9 @@ class ajax extends AWS_CONTROLLER
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('电话已经被使用或者格式不正确')));
         }
 
-		if (! $_POST['agreement_chk'])
-		{
-			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('你必需同意用户协议才能继续')));
-		}
-
-        if(!isset($_POST['sex']))
+        if(!isset($_POST['job_id']))
         {
-            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写性别信息')));
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写职业信息')));
         }
 
         if(!isset($_POST['province']))
@@ -161,10 +152,19 @@ class ajax extends AWS_CONTROLLER
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写城市信息')));
         }
 
-        if(!isset($_POST['job_id']))
+        if (strlen($_POST['company']) == 0)
         {
-            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写职业信息')));
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('请输入公司名称')));
         }
+        else if ($this->model('account')->check_company($_POST['company']))
+        {
+            H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('公司名称包含敏感词')));
+        }
+
+		if (! $_POST['agreement_chk'])
+		{
+			H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('你必需同意用户协议才能继续')));
+		}
 
 		// 检查验证码
 		if (!AWS_APP::captcha()->is_validate($_POST['seccode_verify']) AND get_setting('register_seccode') == 'Y')
@@ -202,7 +202,7 @@ class ajax extends AWS_CONTROLLER
         $update_data['province'] = htmlspecialchars($_POST['province']);
         $update_data['city'] = htmlspecialchars($_POST['city']);
         $update_data['job_id'] = intval($_POST['job_id']);
-        $update_data['phone'] = htmlspecialchars($_POST['phone']);
+        $update_data['mobile'] = htmlspecialchars($_POST['phone']);
         $update_data['company'] = htmlspecialchars($_POST['company']);
 
         // 更新主表
