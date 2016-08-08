@@ -110,11 +110,11 @@ class account_class extends AWS_MODEL
 
     public function check_phone($phone)
     {
-        if(!preg_match("/^1[0123345789]{10}$/",$phone))
+        if(!preg_match("/^1[0-9]{10}$/",$phone))
         {
             return true;
         }
-        return $this->fetch_one('users', 'uid', "mobile = '" . $this->quote($phone) . "''");
+        return $this->fetch_one('users', 'uid', "mobile = '" . $this->quote($phone) . "'");
     }
 
     public function check_company($company)
