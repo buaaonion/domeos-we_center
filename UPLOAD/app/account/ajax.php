@@ -137,17 +137,17 @@ class ajax extends AWS_CONTROLLER
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('电话已经被使用或者格式不正确')));
         }
 
-        if(!isset($_POST['job_id']))
+        if(strlen($_POST['job_id']) == 0)
         {
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写职业信息')));
         }
 
-        if(!isset($_POST['province']))
+        if(strlen($_POST['province']) == 0)
         {
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写省份信息')));
         }
 
-        if(!isset($_POST['city']))
+        if(strlen($_POST['city']) == 0)
         {
             H::ajax_json_output(AWS_APP::RSM(null, -1, AWS_APP::lang()->_t('未填写城市信息')));
         }
