@@ -718,6 +718,7 @@ CREATE TABLE `[#DB_PREFIX#]users` (
   `user_name` varchar(255) DEFAULT NULL COMMENT '用户名',
   `email` varchar(255) DEFAULT NULL COMMENT 'EMAIL',
   `mobile` varchar(16) DEFAULT NULL COMMENT '用户手机',
+  `company` varchar(255) DEFAULT NULL COMMENT '用户公司',
   `password` varchar(32) DEFAULT NULL COMMENT '用户密码',
   `salt` varchar(16) DEFAULT NULL COMMENT '用户附加混淆码',
   `avatar_file` varchar(128) DEFAULT NULL COMMENT '头像文件',
