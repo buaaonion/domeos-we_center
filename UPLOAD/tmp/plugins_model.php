@@ -1,0 +1,1 @@
+a:2:{s:18:"aws_external_class";s:84:"/Applications/XAMPP/xamppfiles/htdocs/wecenter/plugins/aws_external/aws_external.php";s:26:"aws_offical_external_class";s:100:"/Applications/XAMPP/xamppfiles/htdocs/wecenter/plugins/aws_offical_external/aws_offical_external.php";}
