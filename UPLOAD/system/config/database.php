@@ -5,11 +5,11 @@ $config['prefix'] = 'aws_';
 $config['driver'] = 'MySQLi';
 $config['master'] = array (
   'charset' => 'utf8',
-  'host' => '10.2.139.25',
-  'username' => 'root',
-  'password' => 'root',
-  'dbname' => 'we_center',
-  'port' => '3308',
+  'host' => '10.16.54.72',
+  'username' => 'wecenter',
+  'password' => 'wecenter123',
+  'dbname' => 'wecenter',
+  'port' => '3306',
 );
 $config['slave'] = false;
-$config['port'] = '3308';
+$config['port'] = '3306';
